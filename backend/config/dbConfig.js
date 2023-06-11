@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const env = require("dotenv");
 env.config();
 
+//database configuration
 const connectWithDb = () => {
     mongoose.connect(process.env.BASE_URL,{
         useUnifiedTopology:true,

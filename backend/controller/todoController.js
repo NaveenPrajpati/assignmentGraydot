@@ -1,9 +1,13 @@
 const Todo = require('../models/todoModel');
 
+
+//this controller add data to database
 exports.addTodo = async (req, res) => {
     try {
         const {title,description,dueDate,status} = req.body;
         let find=await Todo.find({})
+
+        //id generation
         let length=find.length+1
         let id = length.toString();
           id=id.padStart(3,0);
@@ -26,6 +30,7 @@ exports.addTodo = async (req, res) => {
         return  res.status(500).json({ error: "Internal server error" });
     }
 };
+
 
 exports.getAllTodos = async (req, res) => {
     try {
